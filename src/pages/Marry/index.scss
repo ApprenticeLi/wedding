@@ -1,0 +1,146 @@
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1);
+    z-index: 1000;
+    outline: none;
+}
+$base: 1200;
+.text-magic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2.4);
+    font-size: calc(36 / $base) * 100vw;
+    font-family: Raleway, Verdana, Arial;
+    color: #fff;
+}
+.white {
+    position: absolute;
+    left: - calc(10 / $base) * 100vw;
+    width: 100%;
+    height: calc(3 / $base) * 100vw;
+    background: #000;
+    z-index: 4;
+    animation: whiteMove 3s ease-out infinite;
+}
+
+.text-magic::before {
+    content: attr(data-word);
+    position: absolute;
+    top: 0;
+    left: 0.5px;
+    height: 0;
+    color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    z-index: 2;
+    animation: redShadow 1s ease-in infinite;
+    filter: contrast(200%);
+    text-shadow: 1px 0 0 red;
+}
+
+.text-magic::after {
+    content: attr(data-word);
+    position: absolute;
+    top: 0;
+    left: - calc(3 / $base) * 100vw;
+    height: calc(36 / $base) * 100vw;
+    color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.9);
+    animation: redHeight 1.5s ease-out infinite;
+    filter: contrast(200%);
+    text-shadow: - calc(1 / $base) * 100vw 0 0 cyan;
+    mix-blend-mode: darken;
+}
+
+@keyframes redShadow {
+    20% {
+        height: calc(32 / $base) * 100vw;
+    }
+    60% {
+        height: calc(6 / $base) * 100vw;
+    }
+    100% {
+        height: calc(42 / $base) * 100vw;
+    }
+}
+
+@keyframes redHeight {
+    20% {
+        height: calc(42 / $base) * 100vw;
+    }
+    35% {
+        height: calc(12 / $base) * 100vw;
+    }
+    50% {
+        height: calc(40 / $base) * 100vw;
+    }
+    60% {
+        height: calc(20 / $base) * 100vw;
+    }
+    70% {
+        height: calc(34 / $base) * 100vw;
+    }
+    80% {
+        height: calc(22 / $base) * 100vw;
+    }
+    100% {
+        height: calc(0 / $base) * 100vw;
+    }
+}
+
+@keyframes whiteMove {
+    8% {
+        top: calc(38 / $base) * 100vw;
+    }
+    14% {
+        top: calc(8 / $base) * 100vw;
+    }
+    20% {
+        top: calc(42 / $base) * 100vw;
+    }
+    32% {
+        top: calc(2 / $base) * 100vw;
+    }
+    99% {
+        top: calc(30 / $base) * 100vw;
+    }
+}
+
+.mask-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    -webkit-mask-size: 10vw 10vw;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-image: radial-gradient(circle, #fff 0%, #fff 50%, transparent calc(1)*100%);
+    -webkit-position: 0 0;
+
+}
+.no-want {
+    position: absolute;
+    top: 60%;
+    background-color: #000000;
+    color: #fff;
+    font-size: 18px;
+    transition: left 0.3s;
+    white-space: nowrap;
+}
+.want {
+    position: absolute;
+    left: 45%;
+    top: 60%;
+    background-color: #000000;
+    color: #fff;
+    font-size: 18px;
+}

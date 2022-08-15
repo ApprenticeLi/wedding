@@ -18,6 +18,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    "no-console": process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    "no-debugger": process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'react/jsx-filename-extension': [
       'error',
       {
@@ -29,5 +31,8 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/button-has-type': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    "react/function-component-definition": [2, {
+      "namedComponents": ["function-declaration", "function-expression", "arrow-function"]
+    }]
   },
 };
