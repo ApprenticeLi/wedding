@@ -8,6 +8,7 @@ import {
   Navigation,
   Thumbs,
   Pagination,
+  Lazy,
 } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
@@ -16,6 +17,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/pagination';
+import 'swiper/css/lazy';
 import './index.scss';
 import type { PaginationOptions } from 'swiper/types/modules/pagination';
 
@@ -199,11 +201,12 @@ const Wedding = () => {
   return (
     <Swiper
       style={{ width: '100%', height: '100vh' }}
-      modules={[Mousewheel, Scrollbar, Keyboard]}
+      modules={[Mousewheel, Scrollbar, Keyboard, Lazy]}
       direction="vertical"
       speed={1600}
       mousewheel
       scrollbar={{ hide: true }}
+      lazy
       keyboard={{
         enabled: true,
       }}
@@ -222,13 +225,14 @@ const Wedding = () => {
       <SwiperSlide>
         <Swiper
           className="timeline"
-          modules={[Mousewheel, Scrollbar, Pagination, Navigation]}
+          modules={[Mousewheel, Scrollbar, Pagination, Navigation, Lazy]}
           direction="vertical"
           speed={1600}
           pagination={pagination}
           navigation
           mousewheel
           nested
+          lazy
         >
           {timeLine}
         </Swiper>
@@ -263,7 +267,8 @@ const Wedding = () => {
             swiper:
               thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
           }}
-          modules={[Mousewheel, FreeMode, Navigation, Thumbs]}
+          modules={[Mousewheel, FreeMode, Navigation, Thumbs, Lazy]}
+          lazy
         >
           {ListSlides(true)}
         </Swiper>
@@ -274,7 +279,8 @@ const Wedding = () => {
           slidesPerView={4}
           freeMode
           watchSlidesProgress
-          modules={[FreeMode, Navigation, Thumbs]}
+          modules={[FreeMode, Navigation, Thumbs, Lazy]}
+          lazy
         >
           {ListSlides(false)}
         </Swiper>
