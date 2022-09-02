@@ -1,7 +1,13 @@
 .loading-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
+
+.logo {
+    width: 200px;
+    height: 200px;
+}
+

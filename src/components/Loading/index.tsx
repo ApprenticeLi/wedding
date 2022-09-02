@@ -5,7 +5,7 @@ import './index.css';
 const Loading = () => {
   return (
     <div className="loading-logo">
-      <img src={Heart} alt="loading logo" />
+      <img className="logo" src={Heart} alt="loading logo" />
     </div>
   );
 };
