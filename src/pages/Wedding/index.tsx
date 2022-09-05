@@ -158,11 +158,11 @@ const ListSlides = (flag = false) => {
               style={{ backgroundImage: `url('${domain + el}')` }}
             >
               <div className="filter">
-                <img src={domain + el} alt="img" />
+                <img className="swiper-lazy" data-src={domain + el} alt="img" />
               </div>
             </div>
           ) : (
-            <img src={domain + el} alt="img" />
+            <img className="swiper-lazy" data-src={domain + el} alt="img" />
           )}
         </SwiperSlide>
       ))}
@@ -178,7 +178,9 @@ const Wedding = () => {
       {config.timeline.map((el) => (
         <SwiperSlide
           key={el.data}
-          style={{ backgroundImage: `url(${domain + el.img})` }}
+          data-background={`${domain + el.img}`}
+          className="swiper-lazy"
+          // style={{ backgroundImage: `url(${domain + el.img})` }}
         >
           <div className="swiper-slide-content">
             <span className="timeline-year">{el.year}</span>
@@ -241,8 +243,8 @@ const Wedding = () => {
       {/* 微视频 */}
       <SwiperSlide>
         <div
-          className="video-block"
-          style={{ backgroundImage: `url('${domain + config.bgcImg}')` }}
+          className="video-block swiper-lazy"
+          data-background={`${domain + config.bgcImg}`}
         >
           <div className="filter">
             {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
